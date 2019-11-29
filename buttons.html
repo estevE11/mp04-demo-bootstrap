@@ -49,20 +49,115 @@
     <div class="container-fluid">
         <div class="jumbotron">
             <h1>Buttons</h1>
-            <p>El component Alert serveix per indicar una acció, com per exemple indicar que s'ha posar correctament una contrasenya, que s'ha posat malament una contrasenya o que s'ha enviat un missatge.</p>
+            <p>Els botons de Bootstrap ens permeten donar diferents estils als botons d'HTML.</p>
         </div>
     </div>
     <div class="container-fluid">
-        <div class="btn" type="button" onClick="changeButton()">Click per canviar el tipus de botó</div>
+        <button class="btn btn-primary" type="button" id="btn-main">Botó de prova</button>
     </div>
+
+    <br>
+       
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Tamany</div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-secondary btn-lg" id="btn-lg" onclick="changeSize('lg')">Large</button>
+                        <button type="button" class="btn btn-primary" id="btn-def"  onclick="changeSize('def')">Default</button>
+                        <button type="button" class="btn btn-secondary btn-sm" id="btn-sm" onclick="changeSize('sm')">Small</button>
+                    </div> 
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Color</div>
+                    <div class="card-body">
+                        <button type="button" class="btn" onclick="changeColor('def')">Basic</button>
+                        <button type="button" class="btn btn-primary" onclick="changeColor('primary')">Primari</button>
+                        <button type="button" class="btn btn-secondary" onclick="changeColor('secondary')">Secundari</button>
+                        <button type="button" class="btn btn-success" onclick="changeColor('success')">Èxit</button>
+                        <button type="button" class="btn btn-info" onclick="changeColor('info')">Info</button>
+                        <button type="button" class="btn btn-warning" onclick="changeColor('warning')">Advertència</button>
+                        <button type="button" class="btn btn-danger" onclick="changeColor('danger')">Perill</button>
+                        <button type="button" class="btn btn-dark" onclick="changeColor('dark')">Fosc</button>
+                        <button type="button" class="btn btn-light" onclick="changeColor('light')">Clar</button>
+                        <button type="button" class="btn btn-link" onclick="changeColor('link')">Link</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Bora</div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary" onclick="changeBorder('-')">Total</button>
+                        <button type="button" class="btn btn-outline-secondary" onclick="changeBorder('-outline-')">Només amb bores</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Activat/Desactivat</div>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-primary active" onclick="changeActive('')">Active</button>
+                        <button type="button" class="btn btn-primary disabled" onclick="changeActive('disabled')">Disabled</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <br>
     <div class="container-fluid">
         <pre><code id="code-content">
+
         </code></pre>
     </div>
-            
+
     <script>
-    
+    let color = "primary"
+    let size = "def";
+    let border = "-";
+    let active = "";
+
+    function changeSize(s) {
+        document.getElementById("btn-lg").className = "btn btn-secondary btn-lg";
+        document.getElementById("btn-def").className = "btn btn-secondary";
+        document.getElementById("btn-sm").className = "btn btn-secondary btn-sm";
+        document.getElementById("btn-" + s).className = "btn btn-primary btn-" + s;
+        size = s;
+        updateButton();
+    }
+
+    function changeColor(c) {
+        color = c;
+        updateButton();
+    }
+
+    function changeBorder(b) {
+        border = b;
+        updateButton();
+    }
+
+    function changeActive(a) {
+        active = a;
+        updateButton();
+        if(active == "") document.getElementById("btn-main").disabled = false;
+        else document.getElementById("btn-main").disabled = true;
+    }
+
+    function updateButton() {
+        const cl = "btn btn" + border + color + " btn-" + size + " " + active;
+        document.getElementById("btn-main").className = cl;
+        document.getElementById("code-content").innerHTML = "\t<strong>&lt;button class='" + cl + "'></strong>Botó de prova<strong>&lt;/button></strong>";
+    }
+
+    window.onload = function() {
+        updateButton();
+    }
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

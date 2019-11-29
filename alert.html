@@ -55,7 +55,8 @@
 
     <div class="container-fluid">
         <div class="alert alert-success" id="mainalert"><strong>Success</strong> - Indica una positiva o una accio completada correctament</div>
-        <div class="btn" type="button" onClick="changeAlert()">Click per canviar el tipus d'alert</div>
+        <button class="btn btn-info btn-def" type="button" onClick="changeAlert(-1)">< Anterior</button>
+        <button class="btn btn-primary btn-def" type="button" onClick="changeAlert(1)">Següent ></button>
     </div>
     <br>
     <div class="container-fluid">
@@ -78,8 +79,8 @@
             "Crea una alerta de color gris" // Dark
         ];
         let alert_count;
-        function changeAlert() {
-            alert_count++;
+        function changeAlert(steps) {
+            alert_count+=steps;
             if(alert_count >= alerts.length) alert_count = 0; 
             setAlert(alert_count);
         }
