@@ -82,6 +82,7 @@
         function changeAlert(steps) {
             alert_count+=steps;
             if(alert_count >= alerts.length) alert_count = 0; 
+            if(alert_count < 0) alert_count = alerts.length-1;
             setAlert(alert_count);
         }
 
@@ -91,6 +92,7 @@
             setAlert(i);
             alert_count = i;
             if(alert_count >= alerts.length) alert_count = 0; 
+            if(alert_count < 0) alert_count = alerts.length-1;
         }
     
         function setAlert(i) {
