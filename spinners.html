@@ -49,21 +49,93 @@
     <div class="container-fluid">
         <div class="jumbotron">
             <h1>Spinners</h1>
-            <p>Muerte a sasuke biba itachi</p>
+            <p>Els spinners representan visualment que una accio esta carregant o en procés de ser completada</p>
         </div>
-    </div>
-    <div>
-        <div class="col-md-4">
-            <div class="card" style="width:300px; height:300px;">
-                <img id="img_cris" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Mangekyou_Sharingan_Itachi.svg/1200px-Mangekyou_Sharingan_Itachi.svg.png" alt="Card Image" class="car-img-top" style="width:300px; height:300px;">
-                <div class="card-bod">
-                    <h4 class="card-title">Spinner del ojo</h4>
-                    <p class="card-text"></p>
+        <div class="row d-flex justify-content-center" style="margin:50px;">
+            <div class="spinner-border text-dark" id="main-spinner"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Tipus</div>
+                    <div class="card-body d-flex justify-content-center">
+                        <button class="btn btn-primary" id="btn-spinner-border" onclick="changeType('border')">
+                            <span class="spinner-border spinner-border-sm"></span>
+                        </button>&nbsp;
+                        <button class="btn btn-outline-primary" id="btn-spinner-grow" onclick="changeType('grow')">
+                            <span class="spinner-grow spinner-grow-sm"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Color</div>
+                    <div class="card-body d-flex justify-content-center">
+                        <button class="btn btn-secondary" id="prev-color" onclick="changeColor(-1)">Anterior</button>&nbsp;
+                        <button class="btn btn-primary" id="next-color" onclick="changeColor(1)">Següent</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">Tamany</div>
+                    <div class="card-body d-flex justify-content-center">
+                        <button class="btn btn-primary" id="no-size" onclick="changeSize('no')">Normal</button>&nbsp;
+                        <button class="btn btn-outline-primary" id="sm-size" onclick="changeSize('sm')">Petit</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <br>
+    <div class="container-fluid">
+        <pre><code id="code-content">
+        </code></pre>
+    </div>
     
+    <script>
+        const colors = ["muted", "primary", "success", "info", "warning", "danger", "secondary", "dark", "light"];
+        let 
+        type = "border",
+        color = 0,
+        size = "";
+            
+        function updateSpinner() {
+            let class_name = "spinner-" + type + " text-" + colors[color].toLowerCase() + (size == "" ? "" : " " + size);
+            document.getElementById("main-spinner").className = class_name;
+            document.getElementById("code-content").innerHTML= "\t<strong>&lt;div class='" + class_name + "'></strong><strong><strong>&lt;/div></strong>"
+        }
+            
+        function changeType(t) {
+            document.getElementById("btn-spinner-border").className = "btn btn-outline-primary";
+            document.getElementById("btn-spinner-grow").className = "btn btn-outline-primary";
+            document.getElementById("btn-spinner-" + t).className = "btn btn-primary";
+            type = t;
+            updateSpinner();
+        }
+
+        function changeColor(steps) {
+            color += steps;
+            if(color >= colors.length) color = 0;
+            if(color < 0) color = colors.length-1; 
+            updateSpinner();
+        }
+
+        function changeSize(s) {
+            document.getElementById("no-size").className="btn btn-outline-primary";
+            document.getElementById("sm-size").className="btn btn-outline-primary";
+            document.getElementById(s + "-size").className = "btn btn-primary";
+            if(s == "no") size = "";
+            else size = "spinner-" + type + "-" + s;
+            updateSpinner();
+        }
+
+        window.onload = function() {
+            updateSpinner();
+        }
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
