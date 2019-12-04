@@ -55,19 +55,41 @@
     <div class="container-fluid">
         <div class="row" style="margin:100px;">
             <div class="col d-flex justify-content-center">
-                <div class="dropdown">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                        Dropdown
-                    </button>
-                    <div class="dropdown-menu">
-                        <div class="dropdown-header">Encabezado</div>
-                        <a href="" class="dropdown-item">Hola</a>
-                        <a href="" class="dropdown-item">Hola2</a>
-                        <div class="dropdown-header">Encabezado2</div>
-                        <div class="dropdown-divider"></div>
-                        <a href="" class="dropdown-item">Hola3</a>
+                <div class="btn-group-vertical">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="btn1-drop1">
+                            Dropdown
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-header">Aquest és el primer desplegable</div>
+                            <a class="dropdown-item">Pot tenir encapçalaments</a>
+                            <a class="dropdown-item">I diverses opcions al seu interior</a>
+                            <div class="dropdown-header">Aquest és el segon encapçalament</div>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" onclick="changeColor(1)">I aquesta opció el canvia de color</a>
+                        </div>
                     </div>
+                    <button type="button" class="btn btn-primary" id="btn2-drop1">
+                        Es poden fer grups de botons verticals
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn3-drop1">
+                        Amb menús independents
+                    </button>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="btn4-drop1">
+                                Segon dropdown
+                        </button>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-header">Aquest és el segon desplegable</div>
+                            <a class="dropdown-item">Té opcions diferents</a>
+                            <a class="dropdown-item">A les que té el desplegable superior</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">Es poden utilitzar divisors</a>
+                        </div>
+                    </div>
+                    </div>                    
                 </div>
+            </div>
             </div>
         </div>
         <div class="row" style="margin:100px;">
@@ -75,7 +97,7 @@
                     <div class="btn-group-vertical dropdown dropright">
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                                Dropdown
+                                Dropright
                             </button>
                             <div class="dropdown-menu">
                                 <div class="dropdown-header">Encabezado</div>
@@ -87,10 +109,10 @@
                             </div>
                         </div>
                         <button type="button" class="btn btn-primary">
-                            Grupito vertical to guapo
+                            Es poden fer grups de botons
                         </button>
                         <button type="button" class="btn btn-primary">
-                            Grupito vertical to guapo 2.0
+                            Amb menús independents
                         </button>
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -141,6 +163,30 @@
             </div>
         </div>
     </div>
+
+    <script>
+        
+        const colors = ["primary", "secondary", "success", "info", "warning", "danger", "dark", "light"];
+
+        let color_count;
+
+        window.onload = function() {
+            color_count = 0;
+            setColor(color_count);
+        }
+
+        function changeColor(steps) {
+            color_count += steps;
+           if(color_count >= colors.length) color_count = 0;
+           if(color_count < 0) color_count = colors.length - 1;
+            setColor(color_count)
+        }
+
+        function setColor(color) {
+            document.getElementById("btn1-drop1").className = "btn btn-" + colors[color] + " dropdown-toggle";
+        }
+
+    </script>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
