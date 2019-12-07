@@ -86,10 +86,10 @@
             </div>
 
             <!-- Botons dret i esquerra -->
-            <a class="carousel-control-prev" href="#top-slider" data-slide="prev">
+            <a class="carousel-control-prev" id="btn-prev" href="#top-slider" data-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
             </a>
-            <a class="carousel-control-next" href="#top-slider" data-slide="next">
+            <a class="carousel-control-next" id="btn-next" href="#top-slider" data-slide="next">
                 <span class="carousel-control-next-icon"></span>
             </a>
         </div>
@@ -99,6 +99,19 @@
                 Hola wenas
             </code></pre>
     </div>
+
+    <script>
+        const sec = 3;
+
+        function nextPage() {
+            document.getElementById("btn-next").click();
+            setInterval(nextPage, sec * 1000);
+        }
+
+        window.onload = function() {
+            setInterval(nextPage, sec * 1000);
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
