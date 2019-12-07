@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Modals</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -105,50 +109,34 @@
 
                     <!-- Peu -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="onmodalclose()">Tancar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="btn-main-modal-close">Tancar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
     <script>
-    $(document).ready(function(){
-      $("input").blur(function(){
-        document.getElementById("main-modal-header").innerHTML = document.getElementById("usr").value;
-      });
-    });
+        // Quan es prem el botó per obrir el modal, comprova per cada un dels camps, si esta buit, en cas de no estar-ho,
+        // fica el valor.
+        $("#btn-show-main-modal").click(function(){
+                let val = $("#usr").val();
+                if(val == "") val = "Encapçalament"; 
+                $("#main-modal-header").html(val);
 
-    $(document).ready(function(){
-      $("textarea").blur(function(){
-        document.getElementById("main-modal-body").innerHTML = document.getElementById("input-cos").value;
-      });
-    });
-    </script>
-
-    <script>
-        // Quan prems el botó de obrir el modal amb nom, modifica el body del modal i fa click virtual al primer botó,
-        // que es el que obre el modal. Aixo es la manera mes simple, crear un botó que obre el modal i pulsar-lo virtualment.
-
-
-
-        /*function nameIn() {
-            document.getElementById("main-modal-body").innerHTML = "Bon dia " + document.getElementById("usr").value;
-            document.getElementById("btn-show-main-modal").click();
-        } */
+                val = $("#input-cos").val();
+                if(val == "") val = "Text de exemple en un modal."; 
+                $("#main-modal-body").html(val);
+        });
 
         // Quan es prem el botó de tancar, es canvia el body de nou a "Text de exemple.." per que quan es premi el botó normal
         // no surti el nom.
-        function onmodalclose() {
-            document.getElementById("main-modal-header").innerHTML = "Encapçalament";
-            document.getElementById("main-modal-body").innerHTML = "Text de exemple en un modal.";
-        }
+        $("#btn-main-modal-close").click(function() {
+            console.log("cacaac");
+            $("#main-modal-header").html("Encapçalament");
+            $("#main-modal-body").html("Text de exemple en un modal.");
+        });
     </script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

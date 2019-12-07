@@ -106,7 +106,7 @@
 
         function nextPage() {
             //Fem click virtual al botó de seguent.
-            document.getElementById("btn-next").click();
+            $("#btn-next").click();
 
             //Cridem de nou a la funcio setInterval apuntant a la mateixa funció, per tant el proces es repetira infinitament.
             setInterval(nextPage, sec * 1000); // Els navegadors solen funcionar a 1000 ticks per segon, per tant multipliquem els segons que volem per 1000.
