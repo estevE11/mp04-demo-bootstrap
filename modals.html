@@ -120,13 +120,13 @@
         // Quan es prem el botó per obrir el modal, comprova per cada un dels camps, si esta buit, en cas de no estar-ho,
         // fica el valor.
         $("#btn-show-main-modal").click(function(){
-                let val = $("#usr").val();
-                if(val == "") val = "Encapçalament"; 
-                $("#main-modal-header").html(val);
+            let val = $("#usr").val();
+            if(val == "") val = "Encapçalament"; 
+            $("#main-modal-header").html(val);
 
-                val = $("#input-cos").val();
-                if(val == "") val = "Text de exemple en un modal."; 
-                $("#main-modal-body").html(val);
+            val = $("#input-cos").val();
+            if(val == "") val = "Text de exemple en un modal."; 
+            $("#main-modal-body").html(val);
         });
 
         // Quan es prem el botó de tancar, es canvia el body de nou a "Text de exemple.." per que quan es premi el botó normal
