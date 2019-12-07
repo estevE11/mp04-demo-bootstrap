@@ -101,14 +101,19 @@
     </div>
 
     <script>
+        // Segons que triga en canviar
         const sec = 3;
 
         function nextPage() {
+            //Fem click virtual al botó de seguent.
             document.getElementById("btn-next").click();
-            setInterval(nextPage, sec * 1000);
+
+            //Cridem de nou a la funcio setInterval apuntant a la mateixa funció, per tant el proces es repetira infinitament.
+            setInterval(nextPage, sec * 1000); // Els navegadors solen funcionar a 1000 ticks per segon, per tant multipliquem els segons que volem per 1000.
         }
 
         window.onload = function() {
+            //Cridem a la functio setInterval que ens permet cridar a una funcio cada cert temps.
             setInterval(nextPage, sec * 1000);
         }
     </script>

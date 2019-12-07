@@ -54,16 +54,30 @@
     </div>
     
     <div class="container-fluid">
-
+        
         <!-- Botó que obre el modal -->
         <div class="row" style="margin: 50px;">
             <div class="col d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#main-modal">
+                <button type="button" class="btn btn-primary" id="btn-show-main-modal" data-toggle="modal" data-target="#main-modal">
                     Obrir el modal
                 </button>
             </div>
         </div>
 
+        <!-- Input -->
+        <div class="form-group">
+            <label for="usr">Nom:</label>
+            <input type="text" class="form-control" id="usr">
+        </div>
+        <!-- Botó que obre el modal amb el nom dins-->
+        <div class="row" style="margin: 50px;">
+            <div class="col d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" onclick="nameIn()">
+                    Obrir el modal amb el nom
+                </button>
+            </div>
+        </div>
+            
         <!-- El modal -->
         <div class="modal" id="main-modal">
             <div class="modal-dialog">
@@ -76,18 +90,33 @@
                     </div>
 
                     <!-- Cos -->
-                    <div class="modal-body">
-                        Cuerpesito to guapo
+                    <div class="modal-body" id="main-modal-body">
+                        Text de exemple en un modal.
                     </div>
 
                     <!-- Peu -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Tancar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="onmodalclose()">Tancar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Quan prems el botó de obrir el modal amb nom, modifica el body del modal i fa click virtual al primer botó,
+        // que es el que obre el modal. Aixo es la manera mes simple, crear un botó que obre el modal i pulsar-lo virtualment.
+        function nameIn() {
+            document.getElementById("main-modal-body").innerHTML = "Bon dia " + document.getElementById("usr").value;
+            document.getElementById("btn-show-main-modal").click();                    
+        }
+
+        // Quan es prem el botó de tancar, es canvia el body de nou a "Text de exemple.." per que quan es premi el botó normal
+        // no surti el nom.
+        function onmodalclose() {
+            document.getElementById("main-modal-body").innerHTML = "Text de exemple en un modal.";
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
