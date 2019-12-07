@@ -52,9 +52,9 @@
             <p>Els modals son pestanyes emergents que es superposen a la part superior de la pagina</p>
         </div>
     </div>
-    
+
     <div class="container-fluid">
-        
+
         <!-- Botó que obre el modal -->
         <div class="row" style="margin: 50px;">
             <div class="col d-flex justify-content-center">
@@ -66,18 +66,21 @@
 
         <!-- Input -->
         <div class="form-group">
-            <label for="usr">Nom:</label>
+            <label for="usr">Encapçalament:</label>
             <input type="text" class="form-control" id="usr">
+
+            <label for="comment">Cos:</label>
+            <textarea class="form-control" rows="5" id="input-cos"></textarea>
         </div>
         <!-- Botó que obre el modal amb el nom dins-->
-        <div class="row" style="margin: 50px;">
+        <!-- <div class="row" style="margin: 50px;">
             <div class="col d-flex justify-content-center">
                 <button type="button" class="btn btn-primary" onclick="nameIn()">
                     Obrir el modal amb el nom
                 </button>
             </div>
-        </div>
-            
+        </div> -->
+
         <!-- El modal -->
         <div class="modal" id="main-modal">
             <div class="modal-dialog">
@@ -85,7 +88,7 @@
 
                     <!-- Encapçalament -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Encapçalament</h4>
+                        <h4 class="modal-title" id="main-modal-header">Encapçalament</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
 
@@ -103,17 +106,37 @@
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script>
+    $(document).ready(function(){
+      $("input").blur(function(){
+        document.getElementById("main-modal-header").innerHTML = document.getElementById("usr").value;
+      });
+    });
+
+    $(document).ready(function(){
+      $("textarea").blur(function(){
+        document.getElementById("main-modal-body").innerHTML = document.getElementById("input-cos").value;
+      });
+    });
+    </script>
+
     <script>
         // Quan prems el botó de obrir el modal amb nom, modifica el body del modal i fa click virtual al primer botó,
         // que es el que obre el modal. Aixo es la manera mes simple, crear un botó que obre el modal i pulsar-lo virtualment.
-        function nameIn() {
+
+
+
+        /*function nameIn() {
             document.getElementById("main-modal-body").innerHTML = "Bon dia " + document.getElementById("usr").value;
-            document.getElementById("btn-show-main-modal").click();                    
-        }
+            document.getElementById("btn-show-main-modal").click();
+        } */
 
         // Quan es prem el botó de tancar, es canvia el body de nou a "Text de exemple.." per que quan es premi el botó normal
         // no surti el nom.
         function onmodalclose() {
+            document.getElementById("main-modal-header").innerHTML = "Encapçalament";
             document.getElementById("main-modal-body").innerHTML = "Text de exemple en un modal.";
         }
     </script>
