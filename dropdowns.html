@@ -62,11 +62,11 @@
                         </button>
                         <div class="dropdown-menu">
                             <div class="dropdown-header">Aquest és el primer desplegable</div>
-                            <a class="dropdown-item">Pot tenir encapçalaments</a>
-                            <a class="dropdown-item">I diverses opcions al seu interior</a>
+                            <a href="#btn1-drop1" class="dropdown-item">Pot tenir encapçalaments</a>
+                            <a href="#btn1-drop1" class="dropdown-item">I diverses opcions al seu interior</a>
                             <div class="dropdown-header">Aquest és el segon encapçalament</div>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" onclick="changeColor(1)">I aquesta opció el canvia de color</a>
+                            <a href="#btn1-drop1" class="dropdown-item" onclick="changeColor(1)">I aquesta opció el canvia de color</a>
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary" id="btn2-drop1">
@@ -95,7 +95,7 @@
         <div class="row" style="margin:100px;">
             <div class="col d-flex justify-content-center">
                     <div class="dropdown dropright">
-                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="btn1-drop2">
                                 Dropright
                             </button>
                             <div class="dropdown-menu">
@@ -109,36 +109,36 @@
                     </div>
             </div>
             <div class="col d-flex justify-content-center">
-                <div class="dropdown dropleft">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            Dropleft
+                <div class="btn-group">
+                    <div class="btn-group dropleft" role="group">
+                        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" id="btn1-drop3">
+                            <span class="sr-only"></span>
                         </button>
                         <div class="dropdown-menu">
-                            <div class="dropdown-header">Encabezado</div>
-                            <a href="" class="dropdown-item">Hola</a>
-                            <a href="" class="dropdown-item">Hola2</a>
-                            <div class="dropdown-header">Encabezado2</div>
-                            <div class="dropdown-divider"></div>
-                            <a href="" class="dropdown-item">Hola3</a>
+                            <!-- Aquí va el contenido del dropdown -->
                         </div>
                     </div>
+                    <button type="button" class="btn btn-primary" id="btn2-drop3">
+                        Split Dropleft
+                    </button>
+                </div>
             </div>
         </div>
         <div class="row" style="margin:100px;">
             <div class="col d-flex justify-content-center">
-                <div class="dropup">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            Dropup
-                        </button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" id="btn1-drop4">Boton 1 ricolino</button>
+                    <button type="button" class="btn btn-primary" id="btn2-drop4">Boton 2 ricolino</button>
+                    <div class="btn-group dropup" role="group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="btn3-drop4">Holis que tal</button>
                         <div class="dropdown-menu">
-                            <div class="dropdown-header">Encabezado</div>
-                            <a href="" class="dropdown-item">Hola</a>
-                            <a href="" class="dropdown-item">Hola2</a>
-                            <div class="dropdown-header">Encabezado2</div>
-                            <div class="dropdown-divider"></div>
-                            <a href="" class="dropdown-item">Hola3</a>
+                            <a href="" class="dropdown-item">a</a>
+                            <a href="" class="dropdown-item">a</a>
+                            <a href="" class="dropdown-item">a</a>
+                            <a href="" class="dropdown-item">a</a>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>
@@ -156,7 +156,7 @@
 
         function changeColor(steps) {
             color_count += steps;
-           if(color_count >= colors.length) color_count = 0;
+            if(color_count >= colors.length) color_count = 0;
             setColor(color_count)
         }
 
@@ -165,6 +165,12 @@
             document.getElementById("btn2-drop1").className = "btn btn-" + colors[color];
             document.getElementById("btn3-drop1").className = "btn btn-" + colors[color];
             document.getElementById("btn4-drop1").className = "btn btn-" + colors[color] + " dropdown-toggle";
+            document.getElementById("btn1-drop2").className = "btn btn-" + colors[color] + " dropdown-toggle";
+            document.getElementById("btn1-drop3").className = "btn btn-" + colors[color] + " dropdown-toggle dropdown-toggle-split";
+            document.getElementById("btn2-drop3").className = "btn btn-" + colors[color];
+            document.getElementById("btn1-drop4").className = "btn btn-" + colors[color];
+            document.getElementById("btn2-drop4").className = "btn btn-" + colors[color];
+            document.getElementById("btn3-drop4").className = "btn btn-" + colors[color] + " dropdown-toggle";
         }
 
     </script>
