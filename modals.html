@@ -116,6 +116,62 @@
         </div>
     </div>
 
+    <div class="container-fluid">
+        <pre><code id="code-content">
+                <strong>&lt;div class="container-fluid"></strong>
+
+                    <strong style="font-style: italic; color: grey;">&lt;!-- Botó que obre el modal --></strong>
+                    <strong>&lt;div class="row" style="margin: 50px;">
+                        &lt;div class="col d-flex justify-content-center">
+                            &lt;button type="button" class="btn btn-primary" id="btn-show-main-modal" data-toggle="modal" data-target="#main-modal">
+                                Obrir el modal
+                            &lt;/button>
+                        &lt;/div>
+                    &lt;/div></strong>
+                
+                    <strong style="font-style: italic; color: grey;">&lt;!-- Input --></strong>
+                    <strong>&lt;div class="row">
+                        &lt;div class="col">&lt;/div>
+                            &lt;div class="col">
+                                &lt;div class="form-group">
+                                    &lt;label for="usr">Encapçalament:&lt;/label>
+                                    &lt;input type="text" class="form-control" id="usr">
+                
+                                    &lt;label for="comment">Cos:&lt;/label>
+                                    &lt;textarea class="form-control" rows="5" id="input-cos">&lt;/textarea>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;div class="col">&lt;/div>
+                    &lt;/div></strong>
+                        
+                    <strong style="font-style: italic; color: grey;">&lt;!-- El modal --></strong>
+                    <strong>&lt;div class="modal" id="main-modal">
+                        &lt;div class="modal-dialog">
+                            &lt;div class="modal-content"></strong>
+                
+                                <strong style="font-style: italic; color: grey;">&lt;!-- Encapçalament --></strong>
+                                <strong>&lt;div class="modal-header">
+                                    &lt;h4 class="modal-title" id="main-modal-header">Encapçalament&lt;/h4>
+                                        &lt;button type="button" class="close" data-dismiss="modal">&times;&lt;/button>
+                                &lt;/div></strong>
+                
+                                <strong style="font-style: italic; color: grey;">&lt;!-- Cos --></strong>
+                                <strong>&lt;div class="modal-body" id="main-modal-body">
+                                    Text de exemple en un modal.
+                                &lt;/div></strong>
+                
+                                <strong style="font-style: italic; color: grey;">&lt;!-- Peu --></strong>
+                                <strong>&lt;div class="modal-footer">
+                                    &lt;button type="button" class="btn btn-danger" data-dismiss="modal" id="btn-main-modal-close">Tancar&lt;/button>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/div>
+
+        </code></pre>        
+    </div>
+
     <script>
         // Quan es prem el botó per obrir el modal, comprova per cada un dels camps, si esta buit, en cas de no estar-ho,
         // fica el valor.
