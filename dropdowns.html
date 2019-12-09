@@ -67,7 +67,7 @@
                             <a href="#btn1-drop1" class="dropdown-item">I diverses opcions al seu interior</a>
                             <div class="dropdown-header">Aquest és el segon encapçalament</div>
                             <div class="dropdown-divider"></div>
-                            <a href="#btn1-drop1" class="dropdown-item" onclick="changeColor(1)">I aquesta opció el canvia de color</a>
+                            <a href="#btn1-drop1" class="dropdown-item" onclick="changeColor(1)">I aquesta opció els canvia de color</a>
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary" id="btn2-drop1">
@@ -100,12 +100,9 @@
                                 Dropright
                             </button>
                             <div class="dropdown-menu">
-                                <div class="dropdown-header">Encabezado</div>
-                                <a class="dropdown-item">Dreta</a>
-                                <a class="dropdown-item">Esquerra</a>
-                                <div class="dropdown-header">Encabezado2</div>
+                                <div class="dropdown-header">El desplegable s'obre cap a la dreta</div>
                                 <div class="dropdown-divider"></div>
-                                <a href="" class="dropdown-item">Hola3</a>
+                                <span class="dropdown-item-text">Es pot escriure text com a opció</span>
                             </div>
                     </div>
             </div>
@@ -116,7 +113,12 @@
                             <span class="sr-only"></span>
                         </button>
                         <div class="dropdown-menu">
-                            <!-- Aquí va el contenido del dropdown -->
+                            <div class="dropdown-header">Aquest desplegable s'obre amb un botó diferent</div>
+                            <div class="dropdown-header">Orientat cap a l'esquerra</div>
+                            <div class="dropdown-divider"></div>
+                            <a href="#brn1-drop3" class="dropdown-item">Poden haver elements normals</a>
+                            <a href="" class="dropdown-item active">Elements actius</a>
+                            <a href="" class="dropdown-item disabled">I elements deshabilitats</a>
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary" id="btn2-drop3">
@@ -128,15 +130,14 @@
         <div class="row" style="margin:100px;">
             <div class="col d-flex justify-content-center">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary" id="btn1-drop4">Boton 1 ricolino</button>
-                    <button type="button" class="btn btn-primary" id="btn2-drop4">Boton 2 ricolino</button>
+                    <button type="button" class="btn btn-primary" id="btn1-drop4">S'agrupen els</button>
+                    <button type="button" class="btn btn-primary" id="btn2-drop4">Botons de manera</button>
                     <div class="btn-group dropup" role="group">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="btn3-drop4">Holis que tal</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="btn3-drop4">Horitzontal</button>
                         <div class="dropdown-menu">
-                            <a href="" class="dropdown-item">a</a>
-                            <a href="" class="dropdown-item">a</a>
-                            <a href="" class="dropdown-item">a</a>
-                            <a href="" class="dropdown-item">a</a>
+                            <div class="dropdown-header">Amb el desplegable en la part superior</div>
+                            <div class="dropdown-divider"></div>
+                            <span class="dropdown-item-text">Pot tenir les mateixes opcions que els anteriors</span>
                         </div>
                     </div>
                 </div>
