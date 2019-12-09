@@ -62,33 +62,75 @@
     <div class="container-fluid">
         <div class="row" style="margin: 50px;">
             <div class="col d-flex justify-content-center">
-                <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='top' title='Text del tooltip'> Text del botó &lt;/button>">
+                <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" onclick="copyCode('top')" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='top' title='Text del tooltip'> Text del botó &lt;/button>">
                     Tooltip superior
                 </button>
             </div>
             <div class="col d-flex justify-content-center">
-                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='right' title='Text del tooltip'> Text del botó &lt;/button>">
+                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" onclick="copyCode('right')" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='right' title='Text del tooltip'> Text del botó &lt;/button>">
                     Tooltip dret
                 </button>
             </div>
         </div>
         <div class="row" style="margin: 50px;">
             <div class="col d-flex justify-content-center">
-                <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="left" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='left' title='Text del tooltip'> Text del botó &lt;/button>">
+                <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="left" onclick="copyCode('left')" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='left' title='Text del tooltip'> Text del botó &lt;/button>">
                     Tooltip esquerre
                 </button>
             </div>
             <div class="col d-flex justify-content-center">
-                <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='bottom' title='Text del tooltip'> Text del botó &lt;/button>">
+                <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" onclick="copyCode('bottom')" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='bottom' title='Text del tooltip'> Text del botó &lt;/button>">
                     Tooltip inferior
                 </button>
             </div>
         </div>
+        <div class="row">
+            <div class="col">
+                <div class="row" style="margin: 50px;">
+                    <div class="col d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary" id="btn-open-alert-coll" data-toggle="collapse" data-target="#text" hidden>
+                            Botó que obre el collapse
+                        </button>
+                    </div>
+                </div>
+                <div id="text" class="collapse">
+                    <div class='alert alert-success' id='mainalert'>
+                        <strong>Fet!</strong> Codi copiat al portaretalls
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <script> 
-        
+    <script>
+        // Script copiat de https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
+        function copyToClipboard(str) {
+            const el = document.createElement('textarea');
+            el.value = str;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+        };
     </script>
+
+    <script>
+        const codes = {
+            "top": "<button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='top' title='Text del tooltip'> Text del botó </button>",
+            "bottom": "<button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='bottom' title='Text del tooltip'> Text del botó </button>",
+            "left": "<button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='left' title='Text del tooltip'> Text del botó </button>",
+            "right": "<button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='right' title='Text del tooltip'> Text del botó </button>"
+        };
+        function copyCode(side) {
+            copyToClipboard(codes[side]);
+            toggleCollapse();
+            setTimeout(toggleCollapse, 3000);
+        }
+
+        function toggleCollapse() {
+            $("#btn-open-alert-coll").click();
+        }
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
