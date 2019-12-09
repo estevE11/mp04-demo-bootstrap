@@ -125,6 +125,130 @@
         </div>
     </div>
 
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <pre><code>
+                    <h4 style="text-decoration: underline;">Any</h4>
+<strong>&lt;div class="progress">
+    &lt;div class="progress-bar" id="bar-year">&lt;/div>
+&lt;/div></strong>
+                </code></pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <pre><code>
+                    <h4 style="text-decoration: underline;">Mes</h4>
+<strong>&lt;div class="progress">
+    &lt;div class="progress-bar bg-success" id="bar-month">&lt;/div>
+&lt;/div></strong>
+                </code></pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <pre><code>
+                    <h4 style="text-decoration: underline;">Dia</h4>
+<strong>&lt;div class="progress">
+    &lt;div class="progress-bar bg-info" id="bar-day">&lt;/div>
+&lt;/div></strong>
+                </code></pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <pre><code>
+                    <h4 style="text-decoration: underline;">Hora</h4>
+<strong>&lt;div class="progress">
+    &lt;div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" id="bar-hour">&lt;/div>
+&lt;/div></strong>
+                </code></pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <pre><code>
+                    <h4 style="text-decoration: underline;">Minut</h4>
+<strong>&lt;div class="progress">
+    &lt;div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" id="bar-minute">&lt;/div>
+&lt;/div></strong>
+                </code></pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <pre><code>
+                    <h4 style="text-decoration: underline;">Segon</h4>
+<strong>&lt;div class="progress">
+    &lt;div class="progress-bar bg-dark progress-bar-striped progress-bar-animated" id="bar-second">&lt;/div>
+&lt;/div></strong>
+                </code></pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <pre><code>
+                    <h4 style="text-decoration: underline;">JavaScript</h4>
+<strong>function updateBars() </strong>{
+    const now = new Date();
+
+    updateYear(now);
+    updateDay(now);
+    updateMonth(now);
+    updateHour(now);
+    updateMinute(now);
+    updateSecond(now);
+
+    window.requestAnimationFrame(updateBars);
+}
+
+<strong>function updateYear(now)</strong> {
+    let start = new Date(now.getFullYear(), 0, 0);
+    let diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000);
+    let oneDay = 1000 * 60 * 60 * 24;
+    let day = Math.floor(diff / oneDay);
+
+    document.getElementById("bar-year").style.width = (day*100/365) + "%";
+    document.getElementById("bar-year").innerHTML = Math.floor (day*100/365) + "%";
+}
+
+<strong>function updateMonth(now)</strong> {
+    document.getElementById("bar-month").style.width = (now.getDate()*100/31) + "%";
+    document.getElementById("bar-month").innerHTML= Math.floor (now.getDate()*100/31) + "%";
+}
+
+<strong>function updateDay(now)</strong> {
+    document.getElementById("bar-day").style.width = (now.getHours()*100/24) + "%";
+    document.getElementById("bar-day").innerHTML= Math.floor(now.getHours()*100/24) + "%";
+}
+
+<strong>function updateHour(now)</strong> {
+    document.getElementById("bar-hour").style.width = (now.getMinutes()*100/60) + "%";
+    document.getElementById("bar-hour").innerHTML = Math.floor (now.getMinutes()*100/60) + "%";
+}
+
+<strong>function updateMinute(now)</strong> {
+    document.getElementById("bar-minute").style.width = (now.getSeconds()*100/60) + "%";
+    document.getElementById("bar-minute").innerHTML = Math.floor (now.getSeconds()*100/60) + "%";
+}
+
+<strong>function updateSecond(now)</strong> {
+    let ms = now.getMilliseconds();
+    if(ms % 10 == 0) {
+        document.getElementById("bar-second").style.width = Math.floor((ms*100/1000)) + "%";
+        document.getElementById("bar-second").innerHTML = Math.floor((ms*100/1000)) + "%";
+    }
+}
+
+<strong>window.onload = function()</strong> {
+    window.requestAnimationFrame(updateBars);
+}
+                </code></pre>
+            </div>
+        </div>
+    </div>
+
     <script>
         function updateBars() {
             const now = new Date();

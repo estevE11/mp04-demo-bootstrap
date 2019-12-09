@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Tooltips</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+          $('[data-toggle="tooltip"]').tooltip();
+        });
+        </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -53,8 +59,36 @@
             <p>El component tooltips crea un petit pop-up que dona certa informacio sobre el que fara l'element on es desplega</p>
         </div>
     </div>
+    <div class="container-fluid">
+        <div class="row" style="margin: 50px;">
+            <div class="col d-flex justify-content-center">
+                <button type="button" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='top' title='Text del tooltip'> Text del botó &lt;/button>">
+                    Tooltip superior
+                </button>
+            </div>
+            <div class="col d-flex justify-content-center">
+                <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='right' title='Text del tooltip'> Text del botó &lt;/button>">
+                    Tooltip dret
+                </button>
+            </div>
+        </div>
+        <div class="row" style="margin: 50px;">
+            <div class="col d-flex justify-content-center">
+                <button type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="left" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='left' title='Text del tooltip'> Text del botó &lt;/button>">
+                    Tooltip esquerre
+                </button>
+            </div>
+            <div class="col d-flex justify-content-center">
+                <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="&lt;button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='bottom' title='Text del tooltip'> Text del botó &lt;/button>">
+                    Tooltip inferior
+                </button>
+            </div>
+        </div>
+    </div>
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script> 
+        
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>

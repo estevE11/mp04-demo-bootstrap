@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Inputs</title>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -49,13 +53,145 @@
 
     <div class="container-fluid">
         <div class="jumbotron">
-            <h1>Input</h1>
-            <p>Els imput son elements que l'usuari ha de completar, ja sigui amb lletres o marques</p>
+            <h1>Inputs</h1>
+            <p>Els imputs son elements que l'usuari ha de completar, ja sigui amb lletres o marques</p>
         </div>
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <div class="container-fluid" style="margin: 50px;">
+        <div class="row">
+            <div class="col">
+                <h3>Input normal</h3>
+                Introdueix un text per veure com s'actualitza el placeholder:
+                <input type="text" class="form-control" id="ipt1">
+            </div>
+            <div class="col">
+                <div id="live-txt-ipt" style="margin-top:70px;">&lt;input type='text' class='form-control' placeholder=''></div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <h3>Input checkbox</h3>
+                Si us plau introdueixi el vostre email:
+                <input type="text" class="form-control" id="email" placeholder="email">
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" value="">Vols que t'enviem informació sobre els futurs projectes de Puto Truño Studio?</input><br>
+                        <input type="checkbox" class="form-check-input" value="" disabled>No vull rebre mails</input>
+                    </label>
+                </div>
+            </div>
+            <div class="col">
+<pre><code><strong>&lt;input type="text" class="form-control" id="email" placeholder="email">
+&lt;div class="form-check-inline">
+    &lt;label class="form-check-label">
+        &lt;input type="checkbox" class="form-check-input" value=""></strong>Vols que t'enviem informació sobre els futurs projectes de Puto Truño Studio?<strong>&lt;/input>
+        &lt;input type="checkbox" class="form-check-input" value="" disabled></strong>No vull rebre mails<strong>&lt;/input>
+    &lt;/label>
+&lt;/div></strong></code></pre>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <h3>Radio input</h3>
+                Selecciona un gènere:
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optradio">Masculí
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optradio">Femení
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label for="" class="form-check-label">
+                        <input type="radio" class="form-check-input" name="optradio">Hipopòtam siberià
+                    </label>
+                </div>
+                <div class="form-check">
+                        <label for="" class="form-check-label">
+                            <input type="radio" class="form-check-input" name="optradio">Tanque nazi de la segunda guerra mundial que apoya a los sovieticos
+                        </label>
+                </div>
+            </div>
+            <div class="col">
+<pre><code><strong>&lt;div class="form-check">
+    &lt;label for="" class="form-check-label">
+        &lt;input type="radio" class="form-check-input" name="optradio"></strong>Masculí<strong>
+    &lt;/label>
+&lt;/div>
+&lt;div class="form-check">
+    &lt;label for="" class="form-check-label">
+        &lt;input type="radio" class="form-check-input" name="optradio"></strong>Femení<strong>
+    &lt;/label>
+&lt;/div>
+&lt;div class="form-check">
+    &lt;label for="" class="form-check-label">
+        &lt;input type="radio" class="form-check-input" name="optradio"></strong>Hipopòtam siberià<strong>
+    &lt;/label>
+&lt;/div>
+&lt;div class="form-check">
+    &lt;label for="" class="form-check-label">
+        &lt;input type="radio" class="form-check-input" name="optradio"></strong>Tanque nazi de la segunda guerra mundial que apoya a los sovieticos<strong>
+    &lt;/label>
+&lt;/div></strong></code></pre>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <div class="form-group">
+                    <label for="sel1">Select list:</label>
+                    <select class="form-control" id="sel1">
+                        <option>Adripan Adulto</option>
+                        <option>Ruger Asteva</option>
+                        <option>Cristopelota</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <h3>Select List</h3>
+                <div class="form-group">
+                    <label for="sel1">Select list:</label>
+                    <select multiple class="form-control" id="sel1">
+                        <option>Hernestojavier el Wapo</option>
+                        <option>Rugeriano el Frienzador</option>
+                        <option>Cristianisma la Juzifrutadora</option>
+                        <option>Filiulacio el Perro</option>
+                        <option>Alberto Tipodeletra</option>
+                        <option>Sucka el Blyat</option>
+                        <option>Ahmed el del humor explosivo</option>
+                        <option>Urpp el Smoll</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="range" class="form-control-range">
+            </div>
+            <div class="col">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let old_content = "";
+        $(document).ready(function() {
+            setInterval(function() {
+                if(old_content != $("#ipt1").val()) {
+                    old_content = $("#ipt1").val();
+                    $("#live-txt-ipt").html("&lt;input type='text' class='form-control' placeholder='" + $("#ipt1").val() + "'>");
+                }
+            }, 100);
+        });
+    </script>
+
 </body>
 </html>
