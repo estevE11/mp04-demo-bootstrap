@@ -114,6 +114,8 @@
     </script>
 
     <script>
+        const alertTime = 3; // Els segons que dura el alert d'avis que s'ha copiat algo al portaretalls
+
         const codes = {
             "top": "<button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='top' title='Text del tooltip'> Text del botó </button>",
             "bottom": "<button type='button' class='btn btn-primary' data-toggle='tooltip' data-placement='bottom' title='Text del tooltip'> Text del botó </button>",
@@ -123,7 +125,7 @@
         function copyCode(side) {
             copyToClipboard(codes[side]);
             toggleCollapse();
-            setTimeout(toggleCollapse, 3000);
+            setTimeout(toggleCollapse, alertTime*1000);
         }
 
         function toggleCollapse() {
